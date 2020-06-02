@@ -1,57 +1,59 @@
 package App;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
-public class LoginScreenController {
-    private MainScreenController mainScreenController;
+public class AddMealScreenController {
+    MainScreenController mainScreenController;
 
     public void setMainScreenController(MainScreenController mainScreenController) {
         this.mainScreenController = mainScreenController;
     }
 
     @FXML
-    private TextField loginTextArea;
+    private ChoiceBox<?> productChoiceBox;
 
     @FXML
-    private TextField passwordTextArea;
+    private TextField productWeight;
 
     @FXML
-    private Button loginButton;
+    private Label carbohydrates;
 
     @FXML
-    private Button createNewAccountButton;
+    private Label proteins;
 
-    public void setErrorsLable(Label errorsLable) {
-        this.errorsLable = errorsLable;
+    @FXML
+    private Label fats;
+
+    @FXML
+    private Button addProductButton;
+
+    @FXML
+    private Button goBackButton;
+
+    @FXML
+    private Label errorsLabel;
+
+    @FXML
+    void addProductOnAction() {
+
     }
 
     @FXML
-    private Label errorsLable;
-
-    public void createNewAccountOnAction() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/createNewAccount.fxml"));
-        Pane pane = getPane(loader);
-        CreateNewAccountController createNewAccountController = loader.getController();
-        createNewAccountController.setMainScreenController(mainScreenController);
-        mainScreenController.setScreen(pane);
-    }
-
-    public void loginButtonOnAction(){
+    void goBackOnAction() {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/menuScreen.fxml"));
         Pane pane = getPane(loader);
         MenuScreenController menuScreenController = loader.getController();
         menuScreenController.setMainScreenController(mainScreenController);
         mainScreenController.setScreen(pane);
     }
-
     public Pane getPane(FXMLLoader loader) {
         Pane pane = null;
         try {

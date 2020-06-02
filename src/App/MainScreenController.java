@@ -1,4 +1,4 @@
-package sample;
+package App;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ public class MainScreenController {
 
     @FXML
     public void loadLoginScreen() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("loginScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/loginScreen.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();
