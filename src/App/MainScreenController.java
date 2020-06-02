@@ -19,15 +19,28 @@ public class MainScreenController {
     @FXML
     public void loadLoginScreen() {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/loginScreen.fxml"));
+        Pane pane = getPane(loader);
+        LoginScreenController loginScreenController = loader.getController();
+        loginScreenController.setMainScreenController(this);
+        setScreen(pane);
+    }
+
+    public void loadMenuScreen(){
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/menuScreen.fxml"));
+        Pane pane = getPane(loader);
+        MenuScreenController menuScreenController = loader.getController();
+        menuScreenController.setMainScreenController(this);
+        setScreen(pane);
+    }
+
+    public Pane getPane(FXMLLoader loader) {
         Pane pane = null;
         try {
             pane = loader.load();
         }catch (IOException e){
             e.printStackTrace();
         }
-        LoginScreenController loginScreenController = loader.getController();
-        loginScreenController.setMainScreenController(this);
-        setScreen(pane);
+        return pane;
     }
 
     public void setScreen(Pane pane) {

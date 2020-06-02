@@ -45,22 +45,8 @@ public class AddMealScreenController {
     void addProductOnAction() {
 
     }
-
     @FXML
-    void goBackOnAction() {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/menuScreen.fxml"));
-        Pane pane = getPane(loader);
-        MenuScreenController menuScreenController = loader.getController();
-        menuScreenController.setMainScreenController(mainScreenController);
-        mainScreenController.setScreen(pane);
-    }
-    public Pane getPane(FXMLLoader loader) {
-        Pane pane = null;
-        try {
-            pane = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return pane;
+    void  goBackOnAction(){
+        mainScreenController.loadMenuScreen();
     }
 }
