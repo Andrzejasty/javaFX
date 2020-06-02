@@ -2,6 +2,7 @@ package App;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
@@ -16,7 +17,6 @@ public class MainScreenController {
         loadLoginScreen();
     }
 
-    @FXML
     public void loadLoginScreen() {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/loginScreen.fxml"));
         Pane pane = getPane(loader);
@@ -47,4 +47,5 @@ public class MainScreenController {
         mainStackPane.getChildren().clear();
         mainStackPane.getChildren().add(pane);
     }
+
 }

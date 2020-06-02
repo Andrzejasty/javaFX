@@ -2,12 +2,10 @@ package App;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-
-public class AddMealScreenController {
+public class AddProductController {
     MainScreenController mainScreenController;
 
     public void setMainScreenController(MainScreenController mainScreenController) {
@@ -15,35 +13,49 @@ public class AddMealScreenController {
     }
 
     @FXML
-    private ChoiceBox<?> productChoiceBox;
-
-    @FXML
-    private TextField productWeight;
-
-    @FXML
-    private Label carbohydrates;
-
-    @FXML
-    private Label proteins;
-
-    @FXML
-    private Label fats;
-
-    @FXML
-    private Button addProductButton;
+    private TextField nameProduct;
 
     @FXML
     private Button goBackButton;
 
     @FXML
-    private Label errorsLabel;
+    private Label errorsNameProductLabel;
+
+    @FXML
+    private TextField carbohydratesPerCent;
+
+    @FXML
+    private TextField proteinsPerCent;
+
+    @FXML
+    private TextField fatsPerCent;
+
+    @FXML
+    private TextField kcalInHundredGrams;
+
+    @FXML
+    private Button addProductButton;
+
+    @FXML
+    private Label errorsCarbohydratesLable;
+
+    @FXML
+    private Label errorsProteinsLabel;
+
+    @FXML
+    private Label errorsFatsLabel;
+
+    @FXML
+    private Label errorsKcalLabel;
 
     @FXML
     void addProductOnAction() {
 
     }
+
     @FXML
-    void  goBackOnAction(){
+    void goBackOnAction() {
         mainScreenController.loadMenuScreen();
     }
+
 }

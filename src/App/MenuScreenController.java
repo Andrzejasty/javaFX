@@ -3,6 +3,7 @@ package App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -37,7 +38,11 @@ public class MenuScreenController {
 
     @FXML
     void addProductOnAction() {
-
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/addProductScreen.fxml"));
+        Pane pane = getPane(loader);
+        AddProductController addProductController = loader.getController();
+        addProductController.setMainScreenController(mainScreenController);
+        mainScreenController.setScreen(pane);
     }
 
     @FXML
@@ -47,7 +52,11 @@ public class MenuScreenController {
 
     @FXML
     void statisticsOnAction() {
-
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../FXML/statisticsScreen.fxml"));
+        Pane pane = getPane(loader);
+        StatisticsController statisticsController = loader.getController();
+        statisticsController.setMainScreenController(mainScreenController);
+        mainScreenController.setScreen(pane);
     }
 
     private Pane getPane(FXMLLoader loader) {
