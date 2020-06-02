@@ -1,4 +1,4 @@
-package sample;
+package App;
 
 
 import javafx.fxml.FXML;
@@ -11,6 +11,12 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 
 public class LoginScreenController {
+    private MenuScreenController menuScreenController;
+
+    public void setMenuScreenController(MenuScreenController menuScreenController) {
+        this.menuScreenController = menuScreenController;
+    }
+
     private MainScreenController mainScreenController;
 
     public void setMainScreenController(MainScreenController mainScreenController) {
@@ -50,6 +56,15 @@ public class LoginScreenController {
     }
 
     public void loginButtonOnAction(){
-
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("menuScreen.fxml"));
+        Pane pane = null;
+        try {
+            pane = loader.load();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        MenuScreenController menuScreenController = loader.getController();
+        menuScreenController.setMainScreenController(mainScreenController);
+        mainScreenController.setScreen(pane);
     }
 }
